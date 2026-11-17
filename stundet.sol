@@ -3,7 +3,6 @@ pragma solidity ^0.8.0;
 
 contract StudentRecord {
 
-    // Structure to store student details
     struct Student {
         uint id;
         string name;
@@ -11,12 +10,11 @@ contract StudentRecord {
         string course;
     }
 
-    // Mapping to store student records
+
     mapping(uint => Student) public students;
 
     uint public studentCount;
 
-    // Add Student
     function addStudent(
         string memory _name,
         uint _age,
@@ -33,7 +31,6 @@ contract StudentRecord {
         );
     }
 
-    // View Student
     function getStudent(uint _id)
         public
         view
@@ -57,7 +54,6 @@ contract StudentRecord {
         );
     }
 
-    // Update Student
     function updateStudent(
         uint _id,
         string memory _name,
@@ -73,7 +69,7 @@ contract StudentRecord {
         students[_id].course = _course;
     }
 
-    // Delete Student
+
     function deleteStudent(uint _id) public {
 
         require(_id > 0 && _id <= studentCount,
